@@ -1,27 +1,25 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 19:34:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 14:21:57 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 13:11:02 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 14:15:02 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #pragma once
-#include "iostream"
+#include "Animal.hpp"
 
-class Animal
+class Brain
 {
 public:
-	Animal();
-	Animal(const Animal &ref);
-	Animal &operator=(const Animal &ref);
-	virtual ~Animal();
-	std::string getType();
-	virtual void	makeSound();
-protected:
-	std::string	type;	
+	Brain();
+	Brain(const Brain &ref);
+	Brain &operator=(const Brain &ref);
+	~Brain();
+private:
+	std::string	ideas[100];
 };

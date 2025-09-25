@@ -1,41 +1,41 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 11:49:33 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 14:22:11 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 12:17:03 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 14:32:18 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat()
+WrongCat::WrongCat()
 {
-	this->type = "Cat";
-	std::cout << "(DEBUG - Cat) Default constructor ~Tom~ called." << std::endl;
+	type = "WrongCat";
+	std::cout << "(DEBUG - WrongCat) Default constructor ~WrongTom~ called." << std::endl;
 }
 
-Cat::Cat(const Cat &ref)
+WrongCat::WrongCat(const WrongCat &ref)
 {
 	this->type = ref.type;
 }
 
-Cat &Cat::operator=(const Cat &ref)
+WrongCat &WrongCat::operator=(const WrongCat &ref)
 {
 	if (this != &ref)
 		this->type = ref.type;
 	return (*this);
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "(DEBUG - Cat) Destructor called (RIP TOM)." << std::endl;
+	std::cout << "(DEBUG - WrongCat) Destructor called (RIP WRONGTOM)." << std::endl;
 }
 
-void Cat::makeSound()
+void WrongCat::makeSound()
 {
 	std::cout << "Meow meow!" << std::endl;
 }

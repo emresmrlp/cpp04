@@ -1,41 +1,48 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 11:49:33 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 14:22:11 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 11:49:27 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 15:15:54 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat()
+Dog::Dog()
 {
-	this->type = "Cat";
-	std::cout << "(DEBUG - Cat) Default constructor ~Tom~ called." << std::endl;
+	this->type = "Dog";
+	std::cout << "(DEBUG - Dog) Default constructor ~or Spike :)~ called." << std::endl;
+	this->brain = new Brain();
 }
 
-Cat::Cat(const Cat &ref)
+Dog::Dog(const Dog &ref)
 {
 	this->type = ref.type;
+	this->brain = new Brain(*ref.brain);
 }
 
-Cat &Cat::operator=(const Cat &ref)
+Dog &Dog::operator=(const Dog &ref)
 {
 	if (this != &ref)
+	{
 		this->type = ref.type;
+		delete (this->brain);
+		this->brain = new Brain(*ref.brain);
+	}
 	return (*this);
 }
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout << "(DEBUG - Cat) Destructor called (RIP TOM)." << std::endl;
+	delete (this->brain);
+	std::cout << "(DEBUG - Dog) Destructor called (RIP SPIKE)." << std::endl;
 }
 
-void Cat::makeSound()
+void Dog::makeSound()
 {
-	std::cout << "Meow meow!" << std::endl;
+	std::cout << "Woof woof!" << std::endl;
 }

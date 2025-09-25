@@ -1,41 +1,45 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 11:49:33 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 14:22:11 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/07 19:40:19 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 13:43:05 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "Cat.hpp"
+#include "Animal.hpp"
 
-Cat::Cat()
+Animal::Animal() : type("Animal")
 {
-	this->type = "Cat";
-	std::cout << "(DEBUG - Cat) Default constructor ~Tom~ called." << std::endl;
+	std::cout << "(DEBUG - Animal) Default constructor called." << std::endl;
 }
 
-Cat::Cat(const Cat &ref)
+Animal::Animal(const Animal &ref)
 {
 	this->type = ref.type;
 }
 
-Cat &Cat::operator=(const Cat &ref)
+Animal &Animal::operator=(const Animal &ref)
 {
 	if (this != &ref)
 		this->type = ref.type;
 	return (*this);
 }
 
-Cat::~Cat()
+Animal::~Animal()
 {
-	std::cout << "(DEBUG - Cat) Destructor called (RIP TOM)." << std::endl;
+	std::cout << "(DEBUG - Animal) Destructor called." << std::endl;
 }
 
-void Cat::makeSound()
+std::string Animal::getType()
 {
-	std::cout << "Meow meow!" << std::endl;
+	return (type);
+}
+
+void Animal::makeSound()
+{
+	std::cout << "*generic animal sound*" << std::endl;
 }

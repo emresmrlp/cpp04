@@ -1,27 +1,27 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 19:34:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 14:21:57 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 12:17:10 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 12:23:57 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #pragma once
 #include "iostream"
 
-class Animal
+class WrongAnimal
 {
 public:
-	Animal();
-	Animal(const Animal &ref);
-	Animal &operator=(const Animal &ref);
-	virtual ~Animal();
+	WrongAnimal();
+	WrongAnimal(const WrongAnimal &ref);
+	WrongAnimal &operator=(const WrongAnimal &ref);
+	~WrongAnimal();
 	std::string getType();
-	virtual void	makeSound();
+	void	makeSound();
 protected:
 	std::string	type;	
 };

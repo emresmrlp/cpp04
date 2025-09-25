@@ -1,41 +1,45 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 11:49:33 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 14:22:11 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 12:17:12 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 12:19:01 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 
-Cat::Cat()
+WrongAnimal::WrongAnimal() : type("WrongAnimal")
 {
-	this->type = "Cat";
-	std::cout << "(DEBUG - Cat) Default constructor ~Tom~ called." << std::endl;
+	std::cout << "(DEBUG - WrongAnimal) Default constructor called." << std::endl;
 }
 
-Cat::Cat(const Cat &ref)
+WrongAnimal::WrongAnimal(const WrongAnimal &ref)
 {
 	this->type = ref.type;
 }
 
-Cat &Cat::operator=(const Cat &ref)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &ref)
 {
 	if (this != &ref)
 		this->type = ref.type;
 	return (*this);
 }
 
-Cat::~Cat()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "(DEBUG - Cat) Destructor called (RIP TOM)." << std::endl;
+	std::cout << "(DEBUG - WrongAnimal) Destructor called." << std::endl;
 }
 
-void Cat::makeSound()
+std::string WrongAnimal::getType()
 {
-	std::cout << "Meow meow!" << std::endl;
+	return (type);
+}
+
+void WrongAnimal::makeSound()
+{
+	std::cout << "*generic animal sound*" << std::endl;
 }

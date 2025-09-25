@@ -1,27 +1,27 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   wrongMain.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 19:34:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 14:21:57 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 12:17:06 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 12:21:01 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#pragma once
-#include "iostream"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-class Animal
+int main()
 {
-public:
-	Animal();
-	Animal(const Animal &ref);
-	Animal &operator=(const Animal &ref);
-	virtual ~Animal();
-	std::string getType();
-	virtual void	makeSound();
-protected:
-	std::string	type;	
-};
+	WrongAnimal *meta = new WrongAnimal();
+	WrongAnimal *cat = new WrongCat();
+
+	std::cout << cat->getType() << std::endl;
+	meta->makeSound();
+	cat->makeSound();
+	delete (meta);
+	delete (cat);
+	return (0);
+}

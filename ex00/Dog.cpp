@@ -6,7 +6,7 @@
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 11:49:27 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 12:08:14 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/09/25 14:22:05 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,7 +14,7 @@
 
 Dog::Dog()
 {
-	type = "Dog";
+	this->type = "Dog";
 	std::cout << "(DEBUG - Dog) Default constructor ~or Spike :)~ called." << std::endl;
 }
 

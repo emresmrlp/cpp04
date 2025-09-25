@@ -1,41 +1,35 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 11:49:33 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 14:22:11 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 13:21:19 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 14:15:03 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat()
+Brain::Brain()
 {
-	this->type = "Cat";
-	std::cout << "(DEBUG - Cat) Default constructor ~Tom~ called." << std::endl;
+	std::cout << "(DEBUG - Brain) Default constructor called." << std::endl;
 }
 
-Cat::Cat(const Cat &ref)
+Brain::Brain(const Brain &ref)
 {
-	this->type = ref.type;
+	std::copy(ref.ideas, ref.ideas + 100, this->ideas);
 }
 
-Cat &Cat::operator=(const Cat &ref)
+Brain &Brain::operator=(const Brain &ref)
 {
 	if (this != &ref)
-		this->type = ref.type;
+		std::copy(ref.ideas, ref.ideas + 100, this->ideas);
 	return (*this);
 }
 
-Cat::~Cat()
+Brain::~Brain()
 {
-	std::cout << "(DEBUG - Cat) Destructor called (RIP TOM)." << std::endl;
-}
-
-void Cat::makeSound()
-{
-	std::cout << "Meow meow!" << std::endl;
+	std::cout << "(DEBUG - Brain) Destructor called." << std::endl;
 }
