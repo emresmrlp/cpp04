@@ -1,45 +1,48 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 12:17:12 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/26 16:25:08 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 11:49:27 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 15:15:54 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "WrongAnimal.hpp"
+#include "Dog.hpp"
 
-WrongAnimal::WrongAnimal() : type("WrongAnimal")
+Dog::Dog()
 {
-	std::cout << "(DEBUG - WrongAnimal) Default constructor called." << std::endl;
+	this->type = "Dog";
+	std::cout << "(DEBUG - Dog) Default constructor ~or Spike :)~ called." << std::endl;
+	this->brain = new Brain();
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &ref)
+Dog::Dog(const Dog &ref)
 {
 	this->type = ref.type;
+	this->brain = new Brain(*ref.brain);
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &ref)
+Dog &Dog::operator=(const Dog &ref)
 {
 	if (this != &ref)
+	{
 		this->type = ref.type;
+		delete (this->brain);
+		this->brain = new Brain(*ref.brain);
+	}
 	return (*this);
 }
 
-WrongAnimal::~WrongAnimal()
+Dog::~Dog()
 {
-	std::cout << "(DEBUG - WrongAnimal) Destructor called." << std::endl;
+	delete (this->brain);
+	std::cout << "(DEBUG - Dog) Destructor called (RIP SPIKE)." << std::endl;
 }
 
-std::string WrongAnimal::getType()
+void Dog::makeSound()
 {
-	return (type);
-}
-
-void WrongAnimal::makeSound()
-{
-	std::cout << "*generic animal sound*" << std::endl;
+	std::cout << "Woof woof!" << std::endl;
 }

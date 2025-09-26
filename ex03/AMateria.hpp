@@ -1,27 +1,26 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 12:17:10 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/26 16:30:58 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/26 17:44:49 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/26 19:09:01 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #pragma once
-#include "iostream"
+#include <iostream>
+#include "ICharacter.cpp"
 
-class WrongAnimal
+class AMateria
 {
-public:
-	WrongAnimal();
-	WrongAnimal(const WrongAnimal &ref);
-	WrongAnimal &operator=(const WrongAnimal &ref);
-	~WrongAnimal();
-	std::string getType();
-	void	makeSound();
 protected:
-	std::string	type;	
+
+public:
+	AMateria(std::string const & type);
+	std::string const & getType() const;
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
 };

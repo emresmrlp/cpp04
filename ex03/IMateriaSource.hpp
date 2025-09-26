@@ -1,27 +1,26 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 12:17:10 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/26 16:30:58 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/26 17:45:02 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/26 19:05:20 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #pragma once
-#include "iostream"
+#include <iostream>
+#include "AMateria.hpp"
 
-class WrongAnimal
+class IMateriaSource
 {
 public:
-	WrongAnimal();
-	WrongAnimal(const WrongAnimal &ref);
-	WrongAnimal &operator=(const WrongAnimal &ref);
-	~WrongAnimal();
-	std::string getType();
-	void	makeSound();
-protected:
-	std::string	type;	
+	IMateriaSource();
+	IMateriaSource(const IMateriaSource &ref);
+	IMateriaSource &operator=(const IMateriaSource &ref);
+	virtual ~IMateriaSource() = 0;
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const & type) = 0;
 };

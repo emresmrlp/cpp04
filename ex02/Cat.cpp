@@ -1,45 +1,48 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 12:17:12 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/26 16:25:08 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/09/25 11:49:33 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/09/25 15:15:51 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "WrongAnimal.hpp"
+#include "Cat.hpp"
 
-WrongAnimal::WrongAnimal() : type("WrongAnimal")
+Cat::Cat()
 {
-	std::cout << "(DEBUG - WrongAnimal) Default constructor called." << std::endl;
+	this->type = "Cat";
+	std::cout << "(DEBUG - Cat) Default constructor ~Tom~ called." << std::endl;
+	this->brain = new Brain();
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &ref)
+Cat::Cat(const Cat &ref)
 {
 	this->type = ref.type;
+	this->brain = new Brain(*ref.brain);
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &ref)
+Cat &Cat::operator=(const Cat &ref)
 {
 	if (this != &ref)
+	{
 		this->type = ref.type;
+		delete (this->brain);
+		this->brain = new Brain(*ref.brain);
+	}	
 	return (*this);
 }
 
-WrongAnimal::~WrongAnimal()
+Cat::~Cat()
 {
-	std::cout << "(DEBUG - WrongAnimal) Destructor called." << std::endl;
+	delete (this->brain);
+	std::cout << "(DEBUG - Cat) Destructor called (RIP TOM)." << std::endl;
 }
 
-std::string WrongAnimal::getType()
+void Cat::makeSound()
 {
-	return (type);
-}
-
-void WrongAnimal::makeSound()
-{
-	std::cout << "*generic animal sound*" << std::endl;
+	std::cout << "Meow meow!" << std::endl;
 }
