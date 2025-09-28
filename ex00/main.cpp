@@ -6,7 +6,7 @@
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 11:49:43 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 12:15:49 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/09/28 19:28:16 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -16,10 +16,13 @@
 
 int main()
 {
-	Animal *meta = new Animal();
-	Animal *dog = new Dog();
-	Animal *cat = new Cat();
+	Animal *meta;
+	Animal *dog;
+	Animal *cat;
 
+	meta = new Animal();
+	dog = new Dog();
+	cat = new Cat();
 	std::cout << cat->getType() << std::endl;
 	std::cout << dog->getType() << std::endl;
 	meta->makeSound();

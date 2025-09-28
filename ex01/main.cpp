@@ -6,7 +6,7 @@
 /*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 11:49:43 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/09/25 15:16:51 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/09/28 19:16:21 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -17,20 +17,23 @@
 
 int main()
 {
-	Animal *meta = new Animal();
-	Animal *dog = new Dog();
-	Animal *cat = new Cat();
+	Animal *meta;
+	Animal *dog;
+	Animal *cat;
+	Cat originalCat;
+    Cat copyCat;
+	Dog originalDog;
+	Dog copyDog;
 
+	meta = new Animal();
+	dog = new Dog();
+	cat = new Cat();
 	std::cout << cat->getType() << std::endl;
 	std::cout << dog->getType() << std::endl;
 	meta->makeSound();
 	cat->makeSound();
 	dog->makeSound();
-	std::cout << "Shallow test -->" << std::endl;
-	Dog originalDog;
-    Dog copyDog = originalDog;
-    Cat originalCat;
-    Cat copyCat;
+    copyDog = originalDog;
     copyCat = originalCat;
     std::cout << "Dog brain addresses: " << &originalDog << " vs " << &copyDog << std::endl;
     std::cout << "Cat brain addresses: " << &originalCat << " vs " << &copyCat << std::endl;
